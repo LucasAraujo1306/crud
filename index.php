@@ -1,5 +1,4 @@
 <?php
-include './includes/header.php';
-include './includes/navbar.php';
-// include './movies/list_movies.php';
-include './includes/footer.php';
+include_once './includes/header.php';
+include_once './includes/navbar.php';
+include_once './includes/footer.php';

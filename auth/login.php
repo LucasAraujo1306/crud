@@ -1,7 +1,11 @@
 <?php
 
-session_start();
-include 'db_connection.php'; // Inclua sua conexão com o banco de dados
+if (isset($_COOKIE['is_logged']) && $_COOKIE['is_logged'] === "true") {
+  header('Location: ../index.php');
+  exit();
+}
+
+include '../db/db_connection.php'; // Inclua sua conexão com o banco de dados
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST['username'];
@@ -13,14 +17,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $user = $statement->fetch(PDO::FETCH_ASSOC);
 
   if ($user && password_verify($password, $user['password'])) {
+    session_start();
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['is_admin'] = $user['is_admin'];
-    header('Location: index.php'); // Redireciona para a página inicial após o login
+    //setcookie('is_admin', $user['is_admin']);
+    //setcookie('is_logged', "true");
+    setcookie('is_logged', "true", time() + 3600, "/");
+    setcookie('is_admin', $user['is_admin'], time() + 3600, "/");
+    header('Location: ./login.php'); // Redireciona para a página inicial após o login
     exit();
   } else {
     echo "Nome de usuário ou senha incorretos.";
   }
 }
+
+
 
 ?>
 

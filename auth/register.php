@@ -8,18 +8,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST['username'];
   $password = $_POST['password'];
   $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-  $uuid = generateUUIDv4(); // Se você já tiver a função para gerar UUID
+  $uuid = generateUUIDv4(); // Gerando o UUID
 
-  // Inserir o novo usuário no banco de dados
-  $query = "INSERT INTO users (id, username, password) VALUES (:id, :username, :password)";
-  $statement = $db->prepare($query);
-  $statement->execute([
-    ':id' => $uuid,
-    ':username' => $username,
-    ':password' => $hashed_password
-  ]);
+  // Verifica se o nome de usuário já existe
+  $checkQuery = "SELECT COUNT(*) FROM users WHERE username = :username";
+  $checkStmt = $db->prepare($checkQuery);
+  $checkStmt->execute([':username' => $username]);
+  $userExists = $checkStmt->fetchColumn();
 
-  echo "<p>Registro bem-sucedido! Você pode fazer login agora.</p>";
+  if ($userExists) {
+    echo "<p>Esse nome de usuário já está em uso. Por favor, escolha outro.</p>";
+  } else {
+    // Inserir o novo usuário no banco de dados
+    $query = "INSERT INTO users (id, username, password) VALUES (:id, :username, :password)";
+    $statement = $db->prepare($query);
+    $statement->execute([
+      ':id' => $uuid,
+      ':username' => $username,
+      ':password' => $hashed_password
+    ]);
+
+    echo "<p>Registro bem-sucedido! Você pode fazer login agora.</p>";
+  }
 }
 ?>
 

@@ -1,5 +1,5 @@
 <?php
-require 'db_connection.php';
+require '../db/db_connection.php';
 
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
