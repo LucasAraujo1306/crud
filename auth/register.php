@@ -31,28 +31,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<p>Registro bem-sucedido! Você pode fazer login agora.</p>";
   }
 }
-?>
+include_once '../includes/header.php';  // Cabeçalho HTML e link CSS
+include_once '../includes/navbar.php';  // Navegação
 
-<!DOCTYPE html>
-<html lang="pt-BR">
+// Conteúdo do formulário de registro
+echo '<div class="form-container">';
+echo '<h2>Criar Conta</h2>';
+if (!empty($error)) { // Mostra a mensagem de erro se existir
+  echo '<p class="error-message">' . htmlspecialchars($error) . '</p>';
+}
+echo '<form method="POST" action="register.php">';
+echo '  <label for="username">Usuário:</label>';
+echo '  <input type="text" id="username" name="username" required>';
+echo '  <label for="password">Senha:</label>';
+echo '  <input type="password" id="password" name="password" required>';
+echo '  <button type="submit">Registrar</button>';
+echo '</form>';
+echo '</div>';
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro</title>
-</head>
-
-<body>
-  <h2>Criar Conta</h2>
-  <form method="POST" action="register.php">
-    <label for="username">Usuário:</label>
-    <input type="text" id="username" name="username" required>
-    <br>
-    <label for="password">Senha:</label>
-    <input type="password" id="password" name="password" required>
-    <br>
-    <button type="submit">Registrar</button>
-  </form>
-</body>
-
-</html>
+include_once '../includes/footer.php'; // Rodapé

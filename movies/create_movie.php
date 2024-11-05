@@ -8,10 +8,10 @@ if (!isset($_SESSION['user_id']) || $_SESSION['is_admin'] !== 1) {
   exit();
 }
 
-include '../db/db_connection.php'; // Conexão com o banco de dados
-include '../includes/header.php';  // Cabeçalho HTML e link CSS
-include '../includes/navbar.php';  // Navegação
-include '../functions/uuid.php';
+include_once '../db/db_connection.php'; // Conexão com o banco de dados
+include_once '../includes/header.php';  // Cabeçalho HTML e link CSS
+include_once '../includes/navbar.php';  // Navegação
+include_once '../functions/uuid.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $title = $_POST['title'];
@@ -38,31 +38,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   echo "<p class='success-message'>Filme adicionado com sucesso!</p>";
 }
-?>
 
-<div class="form-container">
-  <h2>Adicionar Novo Filme</h2>
-  <form method="POST" action="create_movie.php" class="movie-form">
-    <label for="title">Título:</label>
-    <input type="text" id="title" name="title" required>
+echo "<div class='form-container'>
+        <h2>Adicionar Novo Filme</h2>
+        <form method='POST' action='create_movie.php' class='movie-form'>
+          <label for='title'>Título:</label>
+          <input type='text' id='title' name='title' required>
 
-    <label for="release_year">Ano de lançamento:</label>
-    <input type="text" id="release_year" name="release_year" required>
+          <label for='release_year'>Ano de lançamento:</label>
+          <input type='text' id='release_year' name='release_year' required>
 
-    <label for="duration">Duração (minutos):</label>
-    <input type="number" id="duration" name="duration" required>
+          <label for='duration'>Duração (minutos):</label>
+          <input type='number' id='duration' name='duration' required>
 
-    <label for="age_rating">Classificação etária:</label>
-    <input type="text" id="age_rating" name="age_rating" required>
+          <label for='age_rating'>Classificação etária:</label>
+          <input type='text' id='age_rating' name='age_rating' required>
 
-    <label for="trailer_url">URL do trailer:</label>
-    <input type="text" id="trailer_url" name="trailer_url" required>
+          <label for='trailer_url'>URL do trailer:</label>
+          <input type='text' id='trailer_url' name='trailer_url' required>
 
-    <label for="cover_image_url">URL da capa do filme:</label>
-    <input type="text" id="cover_image_url" name="cover_image_url" required>
+          <label for='cover_image_url'>URL da capa do filme:</label>
+          <input type='text' id='cover_image_url' name='cover_image_url' required>
 
-    <button type="submit" class="submit-button">Adicionar Filme</button>
-  </form>
-</div>
+          <button type='submit' class='submit-button'>Adicionar Filme</button>
+        </form>
+      </div>";
 
-<?php include '../includes/footer.php'; ?>
+
+include_once '../includes/footer.php';

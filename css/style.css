@@ -1,8 +1,289 @@
 *{
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif
 }
 
-h1{
-  color: brown;
+/* Estilização do Header */
+body{
+  background: linear-gradient(90deg, #87CEFA, #892186, #87CEFA);
+  min-height: 100vh;
+
 }
+
+header, footer {
+  background: rgba(255, 255, 255, 0.5); /* Fundo semi-transparente para o header e footer */
+  padding: 1rem;
+  text-align: center;
+  color: #333;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sutil sombra para destacar */
+}
+
+
+/* Estilização do Navegação */
+nav {
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #555;
+  color: #ff4500;
+}
+
+
+/* login */
+
+.form-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%; /* Ajusta a largura para preencher o container */
+  padding: 10px; /* Adiciona um espaçamento interno */
+  margin: 8px 0; /* Adiciona espaçamento vertical entre os campos */
+  border: 1px solid #ccc; /* Borda padrão */
+  border-radius: 5px; /* Cantos arredondados */
+  box-sizing: border-box; /* Garante que o padding não afete a largura total */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff; /* Cor da borda ao focar */
+  outline: none; /* Remove a borda padrão de foco */
+}
+
+button {
+  background-color: #007bff; /* Cor de fundo do botão */
+  color: white; /* Cor do texto do botão */
+  padding: 10px; /* Espaçamento interno do botão */
+  border: none; /* Remove a borda padrão */
+  border-radius: 5px; /* Cantos arredondados */
+  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+  width: 100%; /* Largura total do botão */
+}
+
+button:hover {
+  background-color: #0056b3; /* Cor ao passar o mouse */
+}
+
+.error-message {
+  color: red;
+  margin: 10px 0;
+}
+
+/* registro */
+
+.form-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%; /* Ajusta a largura para preencher o container */
+  padding: 10px; /* Adiciona um espaçamento interno */
+  margin: 8px 0; /* Adiciona espaçamento vertical entre os campos */
+  border: 1px solid #ccc; /* Borda padrão */
+  border-radius: 5px; /* Cantos arredondados */
+  box-sizing: border-box; /* Garante que o padding não afete a largura total */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff; /* Cor da borda ao focar */
+  outline: none; /* Remove a borda padrão de foco */
+}
+
+button {
+  background-color: #007bff; /* Cor de fundo do botão */
+  color: white; /* Cor do texto do botão */
+  padding: 10px; /* Espaçamento interno do botão */
+  border: none; /* Remove a borda padrão */
+  border-radius: 5px; /* Cantos arredondados */
+  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+  width: 100%; /* Largura total do botão */
+}
+
+button:hover {
+  background-color: #0056b3; /* Cor ao passar o mouse */
+}
+
+.error-message {
+  color: red;
+  margin: 10px 0;
+}
+
+/* list_movies */
+
+.movie-container {
+  display: flex;
+  flex-direction: column; /* Coloca os itens em coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  padding: 20px; /* Adiciona um padding para dar espaço */
+
+}
+
+
+.movie-card {
+  background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 15px 0; /* Margem vertical para espaço entre os cards */
+  padding: 20px;
+  width: 80%; /* Largura do card */
+  max-width: 1000px; /* Largura máxima para cards grandes */
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.movie-card:hover {
+  transform: scale(1.02); /* Efeito de hover */
+}
+
+.movie-title {
+  font-size: 2em;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.movie-info {
+  font-size: 1.2em;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.movie-trailer {
+  width: 100%; /* Largura total */
+  height: auto; /* Mantém a proporção do vídeo */
+  aspect-ratio: 16 / 9; /* Mantém a proporção 16:9 */
+  border: none;
+  margin: 10px 0; /* Margem em cima e embaixo do trailer */
+}
+
+.movie-cover {
+  width: 70%;
+  height: auto;
+  margin: 10px 0px;
+  border-radius: 4px;
+}
+
+.movie-actions {
+  margin-top: 10px;
+}
+
+.button {
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  margin: 5px;
+}
+
+.button:hover {
+  background-color: #2980b9; /* Efeito de hover */
+}
+
+
+/* Create */
+
+/* Estilo para o container do formulário */
+.form-container {
+  max-width: 1000px;
+  margin: 40px auto; /* Centraliza na página */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Título do formulário */
+.form-container h2 {
+  font-size: 2em;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Estilos para o rótulo e os campos de entrada */
+.movie-form label {
+  font-size: 1.2em;
+  color: #333;
+  margin-top: 10px;
+  display: flex; /* Faz o label ocupar uma linha inteira */
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+.movie-form input[type="text"],
+.movie-form input[type="number"],
+.movie-form input[type="url"] {
+  width: 100%; /* Campo ocupa toda a largura do container */
+  padding: 10px;
+  margin: 8px 0 15px; /* Espaçamento inferior para separar os campos */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+/* Estilo do botão de submissão */
+.submit-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.submit-button:hover {
+  background-color: #2980b9;
+}
+
+/* Mensagem de sucesso */
+.success-message {
+  color: #27ae60;
+  font-size: 1.2em;
+  margin: 20px 0;
+}
+
+
+/* Estilização do Footer */
+footer {
+  color: #333;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
+
+

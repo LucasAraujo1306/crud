@@ -31,33 +31,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 
+include_once '../includes/header.php';  // Cabeçalho HTML e link CSS
+include_once '../includes/navbar.php';  // Navegação
 
+// Conteúdo do formulário de login
+echo '<div class="form-container">';
+echo '<h2>Login</h2>';
+if (isset($error)) {
+  echo '<p style="color: red;">' . htmlspecialchars($error) . '</p>';
+}
+echo '<form method="POST" action="login.php">';
+echo '  <label for="username">Usuário:</label>';
+echo '  <input type="text" id="username" name="username" required>';
+echo '  <br>';
+echo '  <label for="password">Senha:</label>';
+echo '  <input type="password" id="password" name="password" required>';
+echo '  <br>';
+echo '  <button type="submit">Entrar</button>';
+echo '</form>';
+echo '</div>';
 
-?>
-
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-</head>
-
-<body>
-  <h2>Login</h2>
-  <?php if (isset($error)): ?>
-    <p style="color: red;"><?php echo $error; ?></p>
-  <?php endif; ?>
-  <form method="POST" action="login.php">
-    <label for="username">Usuário:</label>
-    <input type="text" id="username" name="username" required>
-    <br>
-    <label for="password">Senha:</label>
-    <input type="password" id="password" name="password" required>
-    <br>
-    <button type="submit">Entrar</button>
-  </form>
-</body>
-
-</html>
+include_once '../includes/footer.php'; // Rodapé
