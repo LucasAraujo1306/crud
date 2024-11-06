@@ -36,7 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ':cover_image_url' => $cover_image_url
   ]);
 
-  echo "<p class='success-message'>Filme adicionado com sucesso!</p>";
+  echo "<div class='message-container'>
+          <p class='success-message'>Filme adicionado com sucesso!</p>
+        </div>";
 }
 
 echo "<div class='form-container'>

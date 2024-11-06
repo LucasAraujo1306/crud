@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TeleFlix</title>
+  <title>StreamingFlix</title>
   <link rel="stylesheet" href="/crud/css/style.css">
 </head>
 

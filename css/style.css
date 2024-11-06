@@ -8,8 +8,13 @@
 /* Estilização do Header */
 body{
   background: linear-gradient(90deg, #87CEFA, #892186, #87CEFA);
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
+}
+
+html,body{
+  height: 100%;
 }
 
 header, footer {
@@ -18,6 +23,31 @@ header, footer {
   text-align: center;
   color: #333;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sutil sombra para destacar */
+}
+
+main {
+  flex: 1; /* Faz o conteúdo principal ocupar o espaço necessário */
+}
+
+footer {
+  background-color: #f1f1f1; /* Exemplo de cor de fundo para o rodapé */
+  text-align: center;
+  padding: 10px;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Estilo do banner */
+.banner-container {
+  text-align: center;
+  margin: 50px; /* Espaço entre o banner e o conteúdo ao redor */
+}
+
+.banner-image {
+  max-width: 80%; /* Para que o banner se ajuste à largura da tela */
+  height: auto;    /* Mantém a proporção da imagem */
+  opacity: 0.9;    /* Ajuste a opacidade se quiser ver um pouco do background */
 }
 
 
@@ -275,15 +305,49 @@ button:hover {
   color: #27ae60;
   font-size: 1.2em;
   margin: 20px 0;
+  text-align: center;
 }
 
+/* Estilo da mensagem de sucesso */
+.message-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+
+
+.fade-out {
+  opacity: 0;
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
 
 /* Estilização do Footer */
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f1f1f1;
   color: #333;
   text-align: center;
-  padding: 15px;
-  font-size: 14px;
+  padding: 10px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
+main {
+  margin-bottom: 50px; /* Adiciona espaço para o rodapé fixo */
+}
 
+@media (max-width: 768px) {
+  .movie-card, .banner-image, .movie-cover {
+      max-width: 90%; /* Reduz um pouco a largura em telas pequenas */
+  }
+  .form-container {
+      padding: 20px;
+  }
+}
